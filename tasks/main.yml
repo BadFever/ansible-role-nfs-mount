@@ -1,0 +1,15 @@
+---
+- include_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure mount directories exists
+  file:
+    path: "{{ item.mount_point }}"
+  with_items: "{{ nfs_mount_points }}"
+
+- name: Mount nfs directories
+  mount:
+    src: "{{ item.nfs_export }}"
+    path: "{{ item.mount_point }}"
+    state: mounted
+  with_items: "{{ nfs_mount_points }}"

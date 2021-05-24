@@ -1,0 +1,10 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: badfever
+  description: "Configure NFS mount points"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
